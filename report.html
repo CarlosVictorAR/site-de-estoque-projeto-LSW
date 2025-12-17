@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>StockCloud - Relatórios</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="container">
+        <aside class="left-section">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./assents/logo.png" alt="logo">
+                    StockCloud</a>
+                </div>
+
+                <div class="sidebar">
+                <div class="item">
+                    <a href="./index.html">
+                        <i class='bx bx-home-alt-2'></i>
+                        Dashboard</a>
+                </div>
+                    
+                <div class="item">
+                    <a href="./inventory.html">
+                        <i class='bx bx-grid-alt'></i>
+                        Inventario</a>
+                </div>
+
+                <div class="item">
+                    <a href="./report.html">
+                        <i class='bx bx-message-square'></i>
+                        Relatório</a>
+                </div>
+                    
+            </div>
+        </aside>
+    </div>
+
+        <!-- Conteúdo principal -->
+        <div class="main-content">
+            <!-- Relatórios -->
+            <div id="reports-page" class="page">
+                <div class="page-header">
+                    <h1>Relatório</h1>
+                    <p class="page-description"> Gere e visualize relatórios sobre o seu inventário.</p>
+                </div>
+                
+                <div class="reports-overview">
+                    <div class="report-card">
+                        <h3>Total de Produtos</h3>
+                        <div class="value">0</div>
+                        <p class="description">Produtos diferentes no inventário</p>
+                    </div>
+                    
+                    <div class="report-card">
+                        <h3>Valor Total do Estoque</h3>
+                        <div class="value">R$0</div>
+                        <p class="description">Valor total do inventário</p>
+                    </div>
+                    
+                    <div class="report-card">
+                        <h3>Estoque Baixo</h3>
+                        <div class="value"></div>
+                        <p class="description">Unidades vendidas no último mês</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Níveis de Estoque por Categoria</h3>
+                    <ul class="category-list">
+                        <li>Eletrônicos</li>
+                        <li>Roupas</li>
+                        <li>Casa</li>
+                        <li>Livros</li>
+                        <li>Brinquedos</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Alertas de Baixo Estoque</h3>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Produtos</th>
+                                    <th>Categoria</th>
+                                    <th>Nível de Estoque</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Fone de Ouvido Sem Fio</td>
+                                    <td>Eletrônicos</td>
+                                    <td>15 / 100</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>Vestidos de Verão</td>
+                                    <td>Roupas</td>
+                                    <td>8 / 50</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>Conjunto de Panelas</td>
+                                    <td>Casa</td>
+                                    <td>5 / 25</td>
+                                    <td>10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+    <script src="./js/report.js"></script>
+</body>
+</html>

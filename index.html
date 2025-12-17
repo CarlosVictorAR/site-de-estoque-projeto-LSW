@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>StockCloud - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+<body>
+    <!-- Sidebar -->
+    <div class="container">
+        <aside class="left-section">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./assents/logo.png" alt="logo">
+                    StockCloud</a>
+                </div>
+
+                <div class="sidebar">
+                <div class="item">
+                    <a href="./index.html">
+                        <i class='bx bx-home-alt-2'></i>
+                        Dashboard</a>
+                </div>
+                    
+                <div class="item">
+                    <a href="./inventory.html">
+                        <i class='bx bx-grid-alt'></i>
+                        Inventario</a>
+                </div>
+
+                <div class="item">
+                    <a href="./report.html">
+                        <i class='bx bx-message-square'></i>
+                        Relatório</a>
+                </div>
+            </div>
+
+            <div class="feedback-simple">
+        <button class="feedback-trigger" title="Enviar feedback">
+            <i class='bx bx-message-square-dots'></i>
+            <span>Feedback</span>
+        </button>
+        
+        <div class="feedback-popup">
+            <div class="popup-header">
+                <h5>Enviar Feedback</h5>
+                <button class="close-popup">&times;</button>
+            </div>
+            <form class="feedback-form">
+                <textarea 
+                    placeholder="Compartilhe suas ideias, sugestões ou problemas..."
+                    required></textarea>
+                <button type="submit" class="send-btn">Enviar</button>
+            </form>
+        </div>
+        </aside>
+    </div>
+
+
+
+        <!-- Conteúdo principal -->
+        <div class="main-content">
+            <!-- Dashboard -->
+            <div id="dashboard-page" class="page">
+                <div class="page-header">
+                    <h1>Dashs<span class="danger">board</span></h1>
+                </div>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h3>Total Items</h3>
+                        <div class="value total-items">0</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <h3>Produtos com estoque baixo</h3>
+                        <div class="value low-stock-items">0</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <h3>Valor Total do Estoque</h3>
+                        <div class="value total-stock-value">R$0</div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-actions">
+                    <a href="add-item.html" class="btn btn-primary">+ Adicionar Item</a>
+                    <a href="report.html" class="btn btn-secondary">Relatórios</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+    <script src="./js/feedback.js"></script>
+    <script src="./js/dashboard.js"></script>
+</body>
+</html>
