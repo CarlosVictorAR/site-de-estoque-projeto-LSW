@@ -25,7 +25,7 @@ id: 2, nome: 'Mouse Óptico', categoria: 'Informática', quantidade: 50, preco: 
 dataEntrada: '2025-03-10' } 
 ];
 
-- [ ] **Cadastro de Produtos:**
+- [X] **Cadastro de Produtos:**
 A página “Adicionar Item” deve conter um formulário para incluir novos produtos no array. 
 Valide os campos obrigatórios e exiba mensagens de sucesso ou erro. 
 Após o cadastro, atualize automaticamente a tabela e salve os dados em localStorage.
