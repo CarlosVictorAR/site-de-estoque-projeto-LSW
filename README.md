@@ -13,7 +13,7 @@ Em desenvolvimento
 
 # Funcionalidades
 
-- [ ] **Estrutura de Dados Inicial:**
+- [X] **Estrutura de Dados Inicial:**
 Crie um array de objetos para representar os produtos cadastrados no estoque. 
 Cada objeto deve conter os campos: id, nome, categoria, quantidade, preco e dataEntrada. 
 const produtos = [ 
@@ -46,7 +46,7 @@ A página de relatórios deve gerar estatísticas como:
 • Valor total do estoque (usando reduce()); 
 • Produtos com quantidade abaixo do limite mínimo (alerta de reposição).
 
-- [ ] **Persistência Local:**
+- [X] **Persistência Local:**
 Todos os dados devem ser salvos e carregados do localStorage, garantindo que as informações 
 permaneçam disponíveis mesmo após o fechamento do navegador.
 
