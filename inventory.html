@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>StockCloud - Inventário</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="container">
+        <aside class="left-section">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./assents/logo.png" alt="logo">
+                    StockCloud</a>
+                </div>
+
+                <div class="sidebar">
+                <div class="item">
+                    <a href="./index.html">
+                        <i class='bx bx-home-alt-2'></i>
+                        Dashboard</a>
+                </div>
+                    
+                <div class="item">
+                    <a href="./inventory.html">
+                        <i class='bx bx-grid-alt'></i>
+                        Inventario</a>
+                </div>
+
+                <div class="item">
+                    <a href="./report.html">
+                        <i class='bx bx-message-square'></i>
+                        Relatório</a>
+                </div>
+                    
+            </div>
+        </aside>
+    </div>
+
+        <!-- Conteúdo principal -->
+        <div class="main-content">
+            <!-- Inventário -->
+            <div id="inventory-page" class="page">
+                <div class="page-header" >
+                    <h1>Inventário</h1>
+                    <p class="page-description">Gerencie e visualize todos os produtos do seu inventário.</p>
+                </div>
+                
+                <div class="inventory-header">
+                    <div class="search-box">
+                        <input class="search-input" type="text" placeholder="Busque por produtos">
+                        
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <table class="inventory-table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Categoria</th>
+                                <th>Quantidade</th>
+                                <th>Preço unitário</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventory-body">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+    <script src="./js/inventory.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>StockCloud - Sistema de Gerenciamento de Inventário</title>
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+<body>
+    <!-- Sidebar -->
+    <div class="container">
+        <aside class="left-section">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./assents/logo.png" alt="logo">
+                    StockCloud</a>
+            </div>
+
+            <div class="sidebar">
+                <div class="item">
+                    <a href="./index.html">
+                        <i class='bx bx-home-alt-2'></i>
+                        Dashboard</a>
+                </div>
+    
+                <div class="item">
+                    <a href="./inventory.html">
+                        <i class='bx bx-grid-alt'></i>
+                        Inventario</a>
+                </div>
+
+                <div class="item">
+                    <a href="./report.html">
+                        <i class='bx bx-message-square'></i>
+                        Relatório</a>
+                </div>
+                    
+            </div>
+        </aside>
+    </div>
+
+        <!-- Conteúdo principal -->
+        <div class="main-content">
+            <!-- Página 1: Adicionar Item -->
+            <div id="add-item-page" class="page">
+                <div class="page-header">
+                    <h1>Adicionar Novo Item</h1>
+                    <p class="page-description">Preencha os detalhes abaixo para adicionar um novo produto ao seu inventário.</p>
+                </div>
+                
+                <div class="card add-item-form" id="add-item-form">
+                    <div class="divider"></div>
+                    
+                    <div class="form-group">
+                        <label for="item-name">Nome do Item</label>
+                        <input type="text" id="item-name" placeholder="ex.: Café Orgânico em Grãos">
+                        <p class="error-item-name"></p>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quantity">Quantidade</label>
+                            <input type="number" id="quantity" placeholder="ex.: 100">
+                            <p class="error-quantity"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="unit-price">Preço Unitário (R$)</label>
+                            <input type="number" id="unit-price" step="0.01" placeholder="ex.: 19,99">
+                            <p class="error-unit-price"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Categoria</label>
+                            <select id="category">
+                                <option value="">Selecionar categoria</option>
+                                <option value="eletronicos">Eletrônicos</option>
+                                <option value="roupas">Roupas</option>
+                                <option value="casa-e-jardim">Casa e Jardim</option>
+                                <option value="livros">Livros</option>
+                                <option value="brinquedos">Brinquedos</option>
+                            </select>
+                            <p class="error-category"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="divider"></div>
+                    
+                    <button class="btn-primary add-button">Adicionar Item ao Estoque</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
