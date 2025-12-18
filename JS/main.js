@@ -22,3 +22,11 @@ let arrayOfItems = JSON.parse(localStorage.getItem('items')) || [];
             }
         });
     }
+
+      // Configura botões do dashboard (se existirem)
+    const dashboardButtons = document.querySelectorAll('.dashboard-actions a');
+    dashboardButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            console.log('Navegando para:', this.href);
+        });
+    });
