@@ -40,7 +40,7 @@ Permita editar as informações de produtos (como preço e quantidade) e excluir
 estoque. 
 Essas ações devem atualizar tanto o array quanto o localStorage. 
 
-- [ ] **Relatórios e Indicadores:**
+- [X] **Relatórios e Indicadores:**
 A página de relatórios deve gerar estatísticas como: 
 • Total de itens cadastrados; 
 • Valor total do estoque (usando reduce()); 
