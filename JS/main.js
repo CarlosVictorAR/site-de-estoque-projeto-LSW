@@ -1,3 +1,4 @@
+import { addItemtoArray, validateItemInput } from './addItem.js';
 // Classe Item
 class itemClass {
     constructor(id, name, category, quantity, price, dateEntry) {
