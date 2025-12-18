@@ -30,3 +30,20 @@ let arrayOfItems = JSON.parse(localStorage.getItem('items')) || [];
             console.log('Navegando para:', this.href);
         });
     });
+
+// Menu ativo
+function setActiveMenu() {
+    const menuItems = document.querySelectorAll('.sidebar .item');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    menuItems.forEach(item => {
+        const link = item.querySelector('a');
+        const href = link.getAttribute('href').replace('./', '');
+        item.classList.toggle('active', href === currentPage);
+    });
+}
+
+    console.log('Sistema StockCloud carregado');
+
+        // Configura menu ativo
+        setActiveMenu();

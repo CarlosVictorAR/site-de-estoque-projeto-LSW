@@ -30,7 +30,7 @@ A página “Adicionar Item” deve conter um formulário para incluir novos pro
 Valide os campos obrigatórios e exiba mensagens de sucesso ou erro. 
 Após o cadastro, atualize automaticamente a tabela e salve os dados em localStorage.
 
-- [ ] **Listagem e Filtros:**
+- [X] **Listagem e Filtros:**
 A página de inventário deve exibir todos os produtos cadastrados em uma tabela dinâmica. 
 Implemente uma barra de pesquisa para filtrar produtos por nome ou categoria, utilizando os 
 métodos filter() e includes(). 
@@ -50,7 +50,7 @@ A página de relatórios deve gerar estatísticas como:
 Todos os dados devem ser salvos e carregados do localStorage, garantindo que as informações 
 permaneçam disponíveis mesmo após o fechamento do navegador.
 
-- [ ] **Feedback e Interatividade:**
+- [X] **Feedback e Interatividade:**
 Adicione feedback visual com alertas, mensagens temporárias e cores diferentes para ações 
 como “sucesso”, “erro” e “estoque baixo”. 
 Isso melhora a experiência do usuário e facilita o entendimento das ações executadas. 
