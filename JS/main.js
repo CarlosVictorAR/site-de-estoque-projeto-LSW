@@ -11,3 +11,14 @@ class itemClass {
 }
 // Variável global para itens
 let arrayOfItems = JSON.parse(localStorage.getItem('items')) || [];
+
+ // Configura botão de adicionar (se existir)
+    const addButton = document.querySelector('.add-button');
+    if (addButton) {
+        addButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (validateItemInput()) {
+                addItemtoArray(itemClass, arrayOfItems);
+            }
+        });
+    }
