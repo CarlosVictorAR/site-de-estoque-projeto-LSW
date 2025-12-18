@@ -35,7 +35,7 @@ A página de inventário deve exibir todos os produtos cadastrados em uma tabela
 Implemente uma barra de pesquisa para filtrar produtos por nome ou categoria, utilizando os 
 métodos filter() e includes(). 
 
-- [ ] **Atualização e Exclusão:**
+- [X] **Atualização e Exclusão:**
 Permita editar as informações de produtos (como preço e quantidade) e excluir itens do 
 estoque. 
 Essas ações devem atualizar tanto o array quanto o localStorage. 
