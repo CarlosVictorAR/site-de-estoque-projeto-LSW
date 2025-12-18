@@ -1,60 +1,65 @@
-export { addItemtoArray, validateItemInput};
+//construtora de inventario
+let arrayOfItems = JSON.parse(localStorage.getItem('items')) || [];
+function criarInventario(itens){
+    let inventoryTable = document.querySelector('.inventory-table');
+    inventoryTable.innerHTML = '';
+    let thead = document.createElement('thead');
+    let trHead = document.createElement('tr');
+    let listHeader = ['Produto','Categoria','Quantidade','Preço','Status'];
+    for (let headerText of listHeader){
+        let th = document.createElement('th');
+        th.textContent = headerText;
+        trHead.appendChild(th);
+    }
+    thead.appendChild(trHead);
+    let tbody = document.createElement('tbody');
+    for (let item of itens){
+        let trBody = document.createElement('tr');
+        let tdName = document.createElement('td');
+        tdName.textContent = item.name;
+        trBody.appendChild(tdName);
 
-function addItemtoArray(ItemClass, arrayOfItems) {
-    let id = parseInt(localStorage.getItem('codigo')) || 1;
-    localStorage.setItem('codigo', parseInt(id) + 1);
-    let name = document.querySelector('#item-name').value;
-    let category = document.querySelector('#category').value;
-    let quantity = parseInt(document.querySelector('#quantity').value);
-    let price = parseFloat(
-        (document.querySelector('#unit-price').value || '').toString().replace(',', '.')
-    );
-    let entryDate = new Date().toLocaleDateString("pt-BR");
-    let newItem = new ItemClass(id, name, category, quantity, price, entryDate);
-    arrayOfItems.push(newItem);
-    localStorage.setItem('items', JSON.stringify(arrayOfItems));
-    Swal.fire({
-        icon: 'success',
-        title: 'Item adicionado com sucesso!',
-    });
-    document.querySelector('#item-name').value = "";
-}
+        let tdCategory = document.createElement('td');
 
-function validateItemInput(){
-    let name = document.querySelector('#item-name').value;
-    let quantity = parseInt(document.querySelector('#quantity').value);
-    let price = parseFloat(
-        (document.querySelector('#unit-price').value || '').toString().replace(',', '.')
+        tdCategory.textContent = item.category.split('-').join(' ');
+        tdCategory.style.textTransform = 'capitalize';
+
+        trBody.appendChild(tdCategory);
+
+        let tdQuantity = document.createElement('td');
+        tdQuantity.textContent = item.quantity;
+        trBody.appendChild(tdQuantity);
+
+        let tdPrice = document.createElement('td');
+        tdPrice.textContent = item.price;
+        trBody.appendChild(tdPrice);    
+        
+        let tdStatus = document.createElement('td');
+        if (item.quantity > 5){
+            tdStatus.textContent = 'Em Estoque';
+        } else if (item.quantity <= 5 && item.quantity > 0){
+            tdStatus.textContent = 'Estoque Baixo';
+        } else {
+            tdStatus.textContent = 'Fora de Estoque';
+        }
+        trBody.appendChild(tdStatus);
+        tbody.appendChild(trBody);
+
+        
+    }
+    inventoryTable.appendChild(thead);
+    inventoryTable.appendChild(tbody);
+};
+
+
+let searchInput = document.querySelector('.search-input');
+searchInput.addEventListener('keyup', () => {
+    let filter = searchInput.value.toLowerCase();
+    let filteredItems = arrayOfItems.filter(item => 
+        item.name.toLowerCase().includes(filter) || 
+        item.category.toLowerCase().includes(filter)
     );
-    let category = document.querySelector('#category').value;
-    let isValid = true;
-    if (name.trim() === "") {
-        document.querySelector('.error-item-name').textContent = "Nome do item não pode estar vazio.";
-        isValid = false;
-    }
-    if (quantity <= 0 || isNaN(quantity)) {
-        document.querySelector('.error-quantity').textContent = "Quantidade deve ser um número positivo.";
-        isValid = false;
-    }
-    if (price <= 0 || isNaN(price)) {
-        document.querySelector('.error-unit-price').textContent = "Preço deve ser um número positivo.";
-        isValid = false;
-    }
-    if (category === "") {
-        document.querySelector('.error-category').textContent = "Por favor, selecione uma categoria válida.";
-        isValid = false;
-    }
-    if (name.trim() !== "") {
-        document.querySelector('.error-item-name').textContent = "";
-    }
-    if (quantity > 0 && !isNaN(quantity)) {
-        document.querySelector('.error-quantity').textContent = "";
-    }
-    if (price > 0 && !isNaN(price)) {
-        document.querySelector('.error-unit-price').textContent = "";
-    }
-    if (category !== "") {
-        document.querySelector('.error-category').textContent = "";
-    }
-    return isValid;
-}
+    criarInventario(filteredItems);
+});
+criarInventario(arrayOfItems);
+
