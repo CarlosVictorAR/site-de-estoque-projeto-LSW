@@ -13,7 +13,7 @@ Em desenvolvimento
 
 # Funcionalidades
 
-- [X] **Estrutura de Dados Inicial:**
+- [X] **Estrutura de Dados Inicial:'JUAN'**
 Crie um array de objetos para representar os produtos cadastrados no estoque. 
 Cada objeto deve conter os campos: id, nome, categoria, quantidade, preco e dataEntrada. 
 const produtos = [ 
@@ -25,33 +25,32 @@ id: 2, nome: 'Mouse Óptico', categoria: 'Informática', quantidade: 50, preco: 
 dataEntrada: '2025-03-10' } 
 ];
 
-- [X] **Cadastro de Produtos:**
+- [X] **Cadastro de Produtos:'JUAN'**
 A página “Adicionar Item” deve conter um formulário para incluir novos produtos no array. 
 Valide os campos obrigatórios e exiba mensagens de sucesso ou erro. 
 Após o cadastro, atualize automaticamente a tabela e salve os dados em localStorage.
 
-- [X] **Listagem e Filtros:**
+- [X] **Listagem e Filtros:'CARLOS'**
 A página de inventário deve exibir todos os produtos cadastrados em uma tabela dinâmica. 
 Implemente uma barra de pesquisa para filtrar produtos por nome ou categoria, utilizando os 
 métodos filter() e includes(). 
 
-- [X] **Atualização e Exclusão:**
+- [X] **Atualização e Exclusão:'CARLOS'**
 Permita editar as informações de produtos (como preço e quantidade) e excluir itens do 
 estoque. 
 Essas ações devem atualizar tanto o array quanto o localStorage. 
 
-- [X] **Relatórios e Indicadores:**
+- [X] **Relatórios e Indicadores:'MILLENA'**
 A página de relatórios deve gerar estatísticas como: 
 • Total de itens cadastrados; 
 • Valor total do estoque (usando reduce()); 
 • Produtos com quantidade abaixo do limite mínimo (alerta de reposição).
 
-- [X] **Persistência Local:**
+- [X] **Persistência Local:'JUAN'**
 Todos os dados devem ser salvos e carregados do localStorage, garantindo que as informações 
 permaneçam disponíveis mesmo após o fechamento do navegador.
 
-- [X] **Feedback e Interatividade:**
+- [X] **Feedback e Interatividade:'MILLENA'**
 Adicione feedback visual com alertas, mensagens temporárias e cores diferentes para ações 
 como “sucesso”, “erro” e “estoque baixo”. 
 Isso melhora a experiência do usuário e facilita o entendimento das ações executadas. 
-
