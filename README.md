@@ -54,3 +54,7 @@ permaneçam disponíveis mesmo após o fechamento do navegador.
 Adicione feedback visual com alertas, mensagens temporárias e cores diferentes para ações 
 como “sucesso”, “erro” e “estoque baixo”. 
 Isso melhora a experiência do usuário e facilita o entendimento das ações executadas. 
+
+# Linguagens
+
+Nesse projeto utilizamos JavaScript, HTML e CSS.
