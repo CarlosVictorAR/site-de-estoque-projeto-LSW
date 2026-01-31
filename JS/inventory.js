@@ -169,12 +169,163 @@ function criarInventario(itens){
 
 
 let searchInput = document.querySelector('.search-input');
-searchInput.addEventListener('keyup', () => {
-    let filter = searchInput.value.toLowerCase();
-    let filteredItems = arrayOfItems.filter(item => 
-        item.name.toLowerCase().includes(filter) || 
-        item.category.toLowerCase().includes(filter)
-    );
+const inventoryHeader = document.querySelector('.inventory-header');
+
+let filterTypeSelect;
+let filterValueInput;
+let filterButton;
+let clearButton;
+
+if (inventoryHeader) {
+    const filtersContainer = document.createElement('div');
+    filtersContainer.classList.add('filters');
+
+    const filterTypeGroup = document.createElement('div');
+    filterTypeGroup.classList.add('filter-group');
+    const filterTypeLabel = document.createElement('label');
+    filterTypeLabel.textContent = 'Filtrar por';
+    filterTypeSelect = document.createElement('select');
+    filterTypeSelect.innerHTML = `
+        <option value="name">Nome</option>
+        <option value="category">Categoria</option>
+        <option value="price">Preço (máximo)</option>
+        <option value="low-stock">Estoque baixo</option>
+    `;
+    filterTypeGroup.appendChild(filterTypeLabel);
+    filterTypeGroup.appendChild(filterTypeSelect);
+
+    const filterValueGroup = document.createElement('div');
+    filterValueGroup.classList.add('filter-group');
+    const filterValueLabel = document.createElement('label');
+    filterValueLabel.textContent = 'Valor';
+    filterValueInput = document.createElement('input');
+    filterValueInput.type = 'text';
+    filterValueInput.placeholder = 'Digite o nome';
+    filterValueGroup.appendChild(filterValueLabel);
+    filterValueGroup.appendChild(filterValueInput);
+
+    const filterActionGroup = document.createElement('div');
+    filterActionGroup.classList.add('filter-group');
+    const filterActionLabel = document.createElement('label');
+    filterActionLabel.textContent = 'Ações';
+    const actionWrapper = document.createElement('div');
+    actionWrapper.style.display = 'flex';
+    actionWrapper.style.gap = '10px';
+
+    filterButton = document.createElement('button');
+    filterButton.classList.add('btn', 'btn-primary');
+    filterButton.type = 'button';
+    filterButton.textContent = 'Filtrar';
+
+    clearButton = document.createElement('button');
+    clearButton.classList.add('btn', 'btn-secondary');
+    clearButton.type = 'button';
+    clearButton.textContent = 'Limpar';
+
+    actionWrapper.appendChild(filterButton);
+    actionWrapper.appendChild(clearButton);
+    filterActionGroup.appendChild(filterActionLabel);
+    filterActionGroup.appendChild(actionWrapper);
+
+    filtersContainer.appendChild(filterTypeGroup);
+    filtersContainer.appendChild(filterValueGroup);
+    filtersContainer.appendChild(filterActionGroup);
+
+    inventoryHeader.appendChild(filtersContainer);
+}
+
+function applyFilters() {
+    let filteredItems = [...arrayOfItems];
+
+    const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
+    if (searchTerm) {
+        filteredItems = filteredItems.filter(item =>
+            item.name.toLowerCase().includes(searchTerm) ||
+            item.category.toLowerCase().includes(searchTerm)
+        );
+    }
+
+    const filterType = filterTypeSelect ? filterTypeSelect.value : '';
+    const filterValue = filterValueInput ? filterValueInput.value.trim().toLowerCase() : '';
+
+    if (filterType === 'name' && filterValue) {
+        filteredItems = filteredItems.filter(item =>
+            item.name.toLowerCase().includes(filterValue)
+        );
+    }
+
+    if (filterType === 'category' && filterValue) {
+        filteredItems = filteredItems.filter(item =>
+            item.category.toLowerCase().includes(filterValue)
+        );
+    }
+
+    if (filterType === 'price' && filterValue) {
+        const maxPrice = parseFloat(filterValue.replace(',', '.'));
+        if (!Number.isNaN(maxPrice)) {
+            filteredItems = filteredItems.filter(item =>
+                Number(item.price) <= maxPrice
+            );
+        }
+    }
+
+    if (filterType === 'low-stock') {
+        filteredItems = filteredItems.filter(item =>
+            item.quantity > 0 && item.quantity <= 5
+        );
+    }
+
     criarInventario(filteredItems);
-});
+}
+
+function updateFilterInput() {
+    if (!filterTypeSelect || !filterValueInput) return;
+
+    if (filterTypeSelect.value === 'low-stock') {
+        filterValueInput.value = '';
+        filterValueInput.disabled = true;
+        filterValueInput.placeholder = 'Sem valor';
+        return;
+    }
+
+    filterValueInput.disabled = false;
+
+    if (filterTypeSelect.value === 'price') {
+        filterValueInput.type = 'number';
+        filterValueInput.placeholder = 'Ex.: 50.00';
+        return;
+    }
+
+    filterValueInput.type = 'text';
+    filterValueInput.placeholder = filterTypeSelect.value === 'category'
+        ? 'Digite a categoria'
+        : 'Digite o nome';
+}
+
+if (searchInput) {
+    searchInput.addEventListener('keyup', applyFilters);
+}
+
+if (filterTypeSelect) {
+    filterTypeSelect.addEventListener('change', () => {
+        updateFilterInput();
+        applyFilters();
+    });
+}
+
+if (filterButton) {
+    filterButton.addEventListener('click', applyFilters);
+}
+
+if (clearButton) {
+    clearButton.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        if (filterTypeSelect) filterTypeSelect.value = 'name';
+        if (filterValueInput) filterValueInput.value = '';
+        updateFilterInput();
+        criarInventario(arrayOfItems);
+    });
+}
+
+updateFilterInput();
 criarInventario(arrayOfItems);
