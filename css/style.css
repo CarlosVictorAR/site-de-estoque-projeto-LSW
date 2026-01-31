@@ -1091,7 +1091,7 @@ body.theme-dark .form-group select {
     min-height: 18px;
 }
 
-.add-button {
+.add-button, .return-button {
     width: 100%;
     padding: 14px 30px;
     font-size: 15px;

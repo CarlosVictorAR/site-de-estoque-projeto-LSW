@@ -36,7 +36,7 @@ function addCategoriesToSelect(category, value) {
 
 addCategoriesToSelect(category, value);
 
-function validateItemInput(){
+function validateItemInput(arrayOfItems){
     let name = document.querySelector('#item-name').value;
     let quantity = parseInt(document.querySelector('#quantity').value);
     let price = parseFloat(
@@ -47,6 +47,13 @@ function validateItemInput(){
     if (name.trim() === "") {
         document.querySelector('.error-item-name').textContent = "Nome do item não pode estar vazio.";
         isValid = false;
+    }
+    else if (arrayOfItems.some(item => item.name.toLowerCase() === name.trim().toLowerCase())) {
+        document.querySelector('.error-item-name').textContent = "Item com esse nome já existe.";
+        isValid = false;
+    }
+    else if (name.trim() !== "") {
+        document.querySelector('.error-item-name').textContent = "";
     }
     if (quantity <= 0 || isNaN(quantity)) {
         document.querySelector('.error-quantity').textContent = "Quantidade deve ser um número positivo.";
@@ -59,9 +66,6 @@ function validateItemInput(){
     if (category === "") {
         document.querySelector('.error-category').textContent = "Por favor, selecione uma categoria válida.";
         isValid = false;
-    }
-    if (name.trim() !== "") {
-        document.querySelector('.error-item-name').textContent = "";
     }
     if (quantity > 0 && !isNaN(quantity)) {
         document.querySelector('.error-quantity').textContent = "";
