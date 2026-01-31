@@ -1166,6 +1166,7 @@ body.theme-dark .form-group select {
     position: relative;
     width: 100%;
     max-width: 500px;
+    margin-bottom: 25px
 }
 
 .search-box input {
@@ -1222,6 +1223,27 @@ body.theme-dark .form-group select {
     background-repeat: no-repeat;
     background-position: right 16px center;
     padding-right: 40px;
+}
+
+.filter-group input {
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 2px solid var(--border-gray);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background-color: var(--bg-white);
+    color: var(--text-secondary);
+}
+
+.filter-group input:focus {
+    outline: none;
+    border-color: var(--primary-light-blue);
+    box-shadow: var(--shadow-focus);
+}
+
+.filter-group input:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 .filter-group select:focus {
