@@ -57,7 +57,7 @@ window.addEventListener('storage', (event) => {
     if (addButton) {
         addButton.addEventListener('click', function(e) {
             e.preventDefault();
-            if (validateItemInput()) {
+            if (validateItemInput(arrayOfItems)) {
                 addItemtoArray(itemClass, arrayOfItems);
             }
         });
