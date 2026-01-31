@@ -28,61 +28,6 @@
         }
     }
 
-    
-        // Calcula estatísticas
-    function calculateStatistics(products) {
-        let totalProducts = 0; // Total de unidades
-        let totalValue = 0;
-        let lowStockCount = 0; // Produtos com ≤5 unidades
-        let criticalStockCount = 0; // Produtos com ≤2 unidades
-        let categoryStats = {};
-        
-        products.forEach(product => {
-            const quantity = product.quantity || 0;
-            const price = product.price || 0;
-            
-            // Total de unidades
-            totalProducts += quantity;
-            
-            // Valor total
-            totalValue += quantity * price;
-            
-            // Produtos com estoque baixo (≤5)
-            if (quantity <= 5) {
-                lowStockCount++;
-                
-                // Estoques críticos (≤2)
-                if (quantity <= 2) {
-                    criticalStockCount++;
-                }
-            }
-            
-            // Estatísticas por categoria
-            const category = product.category || 'Sem categoria';
-            if (!categoryStats[category]) {
-                categoryStats[category] = {
-                    count: 0, // Quantidade de unidades
-                    value: 0, // Valor total
-                    items: [] // Lista de produtos
-                };
-            }
-            categoryStats[category].count += quantity;
-            categoryStats[category].value += quantity * price;
-            categoryStats[category].items.push(product);
-        });
-        
-        return {
-            totalProducts, // Total de unidades
-            totalValue,
-            lowStockCount,
-            criticalStockCount,
-            categoryStats,
-            totalItems: products.length // Número de produtos diferentes
-        };
-    }
-
-    
-    
     // Extrai produtos da tabela HTML (como fallback)
     function getProductsFromHTMLTable() {
         const products = [];

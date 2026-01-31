@@ -1,3 +1,5 @@
+import {category,value} from './category.js';
+
 //validadora de input do edit
 function validateItemInputEdit(name, category, quantity, price){
     let isValid = true;
@@ -91,8 +93,8 @@ function criarInventario(itens){
             categoryLabel.classList.add('forms-edit-label');
             let categorySelect = document.createElement('select');
             categorySelect.classList.add('forms-edit');
-            let categories = ['Eletronicos', 'Roupas', 'Casa & Jardim', 'Livros', 'Brinquedos'];
-            let values = ['eletronicos', 'roupas', 'casa-e-jardim', 'livros', 'brinquedos'];
+            let categories = category;
+            let values = value;
             for (let category of categories){
                 let option = document.createElement('option');
                 option.value = values[categories.indexOf(category)];

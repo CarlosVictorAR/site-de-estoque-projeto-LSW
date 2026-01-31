@@ -1,4 +1,5 @@
 export { addItemtoArray, validateItemInput};
+import { category, value } from './category.js';
 
 function addItemtoArray(ItemClass, arrayOfItems) {
     let id = parseInt(localStorage.getItem('codigo')) || 1;
@@ -19,6 +20,21 @@ function addItemtoArray(ItemClass, arrayOfItems) {
     });
     document.querySelector('#item-name').value = "";
 }
+
+
+function addCategoriesToSelect(category, value) {
+    let categorySelect = document.querySelector('#category');
+    if (categorySelect){
+        for (let cat of category){
+            let option = document.createElement('option');
+            option.value = value[category.indexOf(cat)];
+            option.textContent = cat;
+            categorySelect.appendChild(option);
+        }
+    }
+}
+
+addCategoriesToSelect(category, value);
 
 function validateItemInput(){
     let name = document.querySelector('#item-name').value;
