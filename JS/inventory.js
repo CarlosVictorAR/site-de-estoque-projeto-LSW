@@ -1,4 +1,4 @@
-import {category,value} from './categories.js';
+import {category,value} from './category.js';
 
 //validadora de input do edit
 function validateItemInputEdit(name, category, quantity, price){

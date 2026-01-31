@@ -10,7 +10,7 @@ function addCategory(newCategory,valueItem) {
 }
 
 //inicia as categorias padroes caso nao existam
-if (category.length === 0){
+if (category.length < 6){
     addCategory('Selecione uma categoria','');
     addCategory('Eletronicos','eletronicos');
     addCategory('Roupas','roupas');

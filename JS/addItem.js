@@ -24,14 +24,18 @@ function addItemtoArray(ItemClass, arrayOfItems) {
 
 function addCategoriesToSelect(category, value) {
     let categorySelect = document.querySelector('#category');
-    for (let cat of category){
-        let option = document.createElement('option');
-        option.value = value[category.indexOf(cat)];
-        option.textContent = cat;
-        categorySelect.appendChild(option);
+    if (categorySelect){
+        for (let cat of category){
+            let option = document.createElement('option');
+            option.value = value[category.indexOf(cat)];
+            option.textContent = cat;
+            categorySelect.appendChild(option);
+        }
     }
 }
+
 addCategoriesToSelect(category, value);
+
 function validateItemInput(){
     let name = document.querySelector('#item-name').value;
     let quantity = parseInt(document.querySelector('#quantity').value);
