@@ -1,5 +1,5 @@
-export { addItemtoArray, validateItemInput} from './addItem.js';
-export { category, value } from './categories.js';
+export { addItemtoArray, validateItemInput};
+import { category, value } from './category.js';
 
 function addItemtoArray(ItemClass, arrayOfItems) {
     let id = parseInt(localStorage.getItem('codigo')) || 1;
@@ -31,6 +31,7 @@ function addCategoriesToSelect(category, value) {
         categorySelect.appendChild(option);
     }
 }
+addCategoriesToSelect(category, value);
 function validateItemInput(){
     let name = document.querySelector('#item-name').value;
     let quantity = parseInt(document.querySelector('#quantity').value);
